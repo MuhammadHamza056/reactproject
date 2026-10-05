@@ -18,6 +18,12 @@ export function SidebarUserProfile({
   const scheme = useColorScheme() ?? 'dark';
   const colors = Colors[scheme === 'unspecified' ? 'dark' : scheme];
   const user = useAuthStore((state) => state.user);
+  const logout = useAuthStore((state) => state.logout);
+
+  const handleLogout = async () => {
+    await logout();
+    router.replace('/login');
+  };
 
   return (
     <View
@@ -54,15 +60,15 @@ export function SidebarUserProfile({
       </Pressable>
 
       {/* User Card */}
-      <Pressable
-        onPress={() => router.push('/settings')}
-        style={({ pressed }) => [
+      <View
+        style={[
           styles.profileCard,
           isCollapsed ? styles.profileCardCollapsed : styles.profileCardExpanded,
-          pressed && { opacity: 0.8 },
         ]}>
         {/* Avatar using expo-image */}
-        <View style={styles.avatarWrapper}>
+        <Pressable
+          onPress={() => router.push('/settings')}
+          style={styles.avatarWrapper}>
           <Image
             source={{ uri: user?.avatarUrl }}
             style={styles.avatar}
@@ -71,10 +77,12 @@ export function SidebarUserProfile({
             accessibilityLabel={user?.name ?? 'User Profile'}
           />
           <View style={[styles.onlineDot, { backgroundColor: colors.success }]} />
-        </View>
+        </Pressable>
 
         {!isCollapsed && (
-          <View style={styles.userInfo}>
+          <Pressable
+            onPress={() => router.push('/settings')}
+            style={styles.userInfo}>
             <Text numberOfLines={1} style={[styles.userName, { color: colors.text }]}>
               {user?.name ?? 'Store Manager'}
             </Text>
@@ -83,15 +91,34 @@ export function SidebarUserProfile({
               style={[styles.userRole, { color: colors.textSecondary }]}>
               {user?.role ?? 'Owner'} • {user?.storeLocation ?? 'NYC'}
             </Text>
-          </View>
+          </Pressable>
         )}
 
-        {!isCollapsed && (
-          <View style={styles.settingsIcon}>
-            <Ionicons name="ellipsis-vertical" size={16} color={colors.textSecondary} />
-          </View>
+        {/* Logout Button */}
+        {!isCollapsed ? (
+          <Pressable
+            onPress={handleLogout}
+            style={({ pressed }) => [
+              styles.logoutBtn,
+              pressed && { opacity: 0.6 },
+            ]}
+            accessibilityRole="button"
+            accessibilityLabel="Log out">
+            <Ionicons name="log-out-outline" size={18} color={colors.textSecondary} />
+          </Pressable>
+        ) : (
+          <Pressable
+            onPress={handleLogout}
+            style={({ pressed }) => [
+              styles.logoutBtnCollapsed,
+              pressed && { opacity: 0.6 },
+            ]}
+            accessibilityRole="button"
+            accessibilityLabel="Log out">
+            <Ionicons name="log-out-outline" size={16} color={colors.textSecondary} />
+          </Pressable>
         )}
-      </Pressable>
+      </View>
     </View>
   );
 }
@@ -128,8 +155,10 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   profileCardCollapsed: {
+    flexDirection: 'column',
     justifyContent: 'center',
     paddingVertical: 6,
+    gap: 8,
   },
   avatarWrapper: {
     position: 'relative',
@@ -162,7 +191,12 @@ const styles = StyleSheet.create({
     fontSize: 11,
     marginTop: 1,
   },
-  settingsIcon: {
+  logoutBtn: {
+    padding: 6,
+    borderRadius: 6,
+  },
+  logoutBtnCollapsed: {
     padding: 4,
+    borderRadius: 6,
   },
 });
