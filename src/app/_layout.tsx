@@ -1,18 +1,36 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
+import React, { useEffect } from 'react';
+import { Slot } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { useColorScheme, View, StyleSheet } from 'react-native';
+import { DashboardShell } from '@/features/navigation/components/DashboardShell';
+import { Colors } from '@/constants/theme';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+SplashScreen.preventAutoHideAsync().catch(() => {});
 
-SplashScreen.preventAutoHideAsync();
+export default function RootLayout() {
+  const colorScheme = useColorScheme() ?? 'dark';
+  const scheme = colorScheme === 'unspecified' ? 'dark' : colorScheme;
+  const colors = Colors[scheme];
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  useEffect(() => {
+    SplashScreen.hideAsync().catch(() => {});
+  }, []);
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <View style={[styles.root, { backgroundColor: colors.background }]}>
+      <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
+      <DashboardShell>
+        <Slot />
+      </DashboardShell>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+  },
+});
