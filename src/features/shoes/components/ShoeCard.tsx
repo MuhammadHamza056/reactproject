@@ -1,12 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable, useColorScheme } from 'react-native';
 import { Image } from 'expo-image';
 import { Ionicons } from '@expo/vector-icons';
 import { Sneaker } from '../types/shoe.types';
 import { Badge } from '@/components/ui/Badge';
 import { useShoeStore } from '../store/useShoeStore';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 
 interface ShoeCardProps {
   sneaker: Sneaker;

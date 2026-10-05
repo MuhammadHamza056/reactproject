@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Platform } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Platform, useColorScheme } from 'react-native';
 import { usePathname, router } from 'expo-router';
 import { NAVIGATION_ITEMS } from '../constants/navigationItems';
 import { useNavigationStore } from '../store/useNavigationStore';
@@ -7,7 +7,6 @@ import { SidebarBrand } from './SidebarBrand';
 import { SidebarNavItem } from './SidebarNavItem';
 import { SidebarUserProfile } from './SidebarUserProfile';
 import { Colors, Layout } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 
 interface LeftSidebarProps {
   onItemPress?: () => void;

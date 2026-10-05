@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Pressable, Platform } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Platform, useColorScheme } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { NavItem } from '../types/navigation.types';
 import { Badge } from '@/components/ui/Badge';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 
 interface SidebarNavItemProps {
   item: NavItem;

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, Pressable, Platform } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Pressable, Platform, useColorScheme } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { secureStorage } from '@/features/auth/services/secureStorageService';
 import { useAuthStore } from '@/features/auth/store/useAuthStore';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 
 export function SecurityCredentials() {
   const scheme = useColorScheme() ?? 'dark';

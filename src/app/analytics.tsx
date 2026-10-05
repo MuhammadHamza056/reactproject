@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, useColorScheme } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 
 const BRAND_BREAKDOWN = [
   { brand: 'Jordan Retro', percent: 48, revenue: '$88,760', color: '#FF5500' },

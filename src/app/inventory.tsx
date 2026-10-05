@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TextInput, Platform } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TextInput, Platform, useColorScheme } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { ShoeStatsHeader } from '@/features/shoes/components/ShoeStatsHeader';
 import { ShoeCard } from '@/features/shoes/components/ShoeCard';
 import { useShoeStore } from '@/features/shoes/store/useShoeStore';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 
 export default function InventoryScreen() {
   const scheme = useColorScheme() ?? 'dark';
@@ -137,7 +136,6 @@ const styles = StyleSheet.create({
   cardWrapper: {
     width: '100%',
     padding: 8,
-    // Responsive card widths
     maxWidth: '100%',
     ...(Platform.OS === 'web'
       ? {

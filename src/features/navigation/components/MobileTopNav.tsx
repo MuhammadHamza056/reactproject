@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, Pressable, Modal } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Modal, useColorScheme } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigationStore } from '../store/useNavigationStore';
 import { LeftSidebar } from './LeftSidebar';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 
 export function MobileTopNav() {
   const scheme = useColorScheme() ?? 'dark';

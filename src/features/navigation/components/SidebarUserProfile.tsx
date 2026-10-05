@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable, useColorScheme } from 'react-native';
 import { Image } from 'expo-image';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuthStore } from '@/features/auth/store/useAuthStore';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 import { router } from 'expo-router';
 
 interface SidebarUserProfileProps {

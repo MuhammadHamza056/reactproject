@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Pressable, useColorScheme } from 'react-native';
 import { Image } from 'expo-image';
-import { Ionicons } from '@expo/vector-icons';
 import { Badge } from '@/components/ui/Badge';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 
 interface OrderItem {
   id: string;

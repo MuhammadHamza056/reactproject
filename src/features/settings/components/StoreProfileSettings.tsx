@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Pressable, Platform } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Pressable, Platform, useColorScheme } from 'react-native';
 import { Image } from 'expo-image';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuthStore } from '@/features/auth/store/useAuthStore';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 
 export function StoreProfileSettings() {
   const scheme = useColorScheme() ?? 'dark';

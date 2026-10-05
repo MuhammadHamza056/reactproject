@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Pressable, ScrollView, useColorScheme } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useShoeStore } from '../store/useShoeStore';
 import { ShoeBrand } from '../types/shoe.types';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 
 const BRANDS: (ShoeBrand | 'All')[] = [
   'All',

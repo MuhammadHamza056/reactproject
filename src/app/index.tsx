@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Pressable, useColorScheme } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { StatCard } from '@/features/dashboard/components/StatCard';
@@ -7,7 +7,6 @@ import { RevenueChart } from '@/features/dashboard/components/RevenueChart';
 import { RecentSalesList } from '@/features/dashboard/components/RecentSalesList';
 import { DashboardMetric } from '@/features/dashboard/types/dashboard.types';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 
 const METRICS: DashboardMetric[] = [
   {
