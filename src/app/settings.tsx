@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, useColorScheme } from 'react-native';
 import { StoreProfileSettings } from '@/features/settings/components/StoreProfileSettings';
 import { SecurityCredentials } from '@/features/settings/components/SecurityCredentials';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 
 export default function SettingsScreen() {
   const scheme = useColorScheme() ?? 'dark';

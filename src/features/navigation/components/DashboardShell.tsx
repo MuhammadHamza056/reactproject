@@ -7,13 +7,13 @@ import {
   TextInput,
   Pressable,
   Platform,
+  useColorScheme,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LeftSidebar } from './LeftSidebar';
 import { MobileTopNav } from './MobileTopNav';
 import { useAuthStore } from '@/features/auth/store/useAuthStore';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 import { router } from 'expo-router';
 
 interface DashboardShellProps {

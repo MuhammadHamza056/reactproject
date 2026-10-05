@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, useColorScheme } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { DashboardMetric } from '../types/dashboard.types';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 
 interface StatCardProps {
   metric: DashboardMetric;

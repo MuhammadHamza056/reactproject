@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable, useColorScheme } from 'react-native';
 import { TimeRange } from '../types/dashboard.types';
 import { Colors } from '@/constants/theme';
-import { useColorScheme } from 'react-native';
 
 const TIME_RANGES: TimeRange[] = ['24h', '7d', '30d', '90d', 'YTD'];
 
